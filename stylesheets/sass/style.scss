@@ -1,2 +1,134 @@
 @import "../bourbon/bourbon";
 @import "../neat/neat";
+
+// mini-reset
+
+ul {
+    -webkit-padding-start: 0px;
+}
+
+// Colors
+$y: #ffe390;
+$o: #ff926b;
+$r: #ff4a4a;
+$p: #a83c54;
+
+body{
+	font-family: 'Raleway', sans-serif;
+	background: $y;
+}
+
+h1{
+	font-weight: 900;
+	color: $y;
+	font-size: modular-scale(7);
+}
+
+h1,h2{
+	color: $y;
+}
+
+p {
+	font-weight: 400;
+}
+
+.pull-right{
+	float: right;
+}
+
+.main-head{
+	text-shadow: tint($r, 10%) -4px 4px 0;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.char1,.char3,.char4,.char6,.char8{
+	top: 4px;
+	position: relative;
+}
+.char10, .char2{
+	position: relative;
+	bottom: 6px;
+}
+
+form{
+	@include span-columns(12);
+}
+
+.done-items{
+	@include span-columns(4 of 12);
+}
+
+.to-do-items{
+	@include span-columns(8 of 12);
+}
+
+.main-input{
+	height: 75px;
+	padding: 20px;
+	@include span-columns(6 of 8);
+	font-size: modular-scale(2);
+	background-color: $y;
+	border: 5px solid $r;
+}
+
+.container{
+	@include outer-container;
+	margin-top: 100px;
+}
+
+
+
+li{
+	list-style: none;
+	display: inline-block;
+	width: 100%;
+	color: $y;
+	font-size: 16px;
+	margin-bottom: 10px;
+	padding: 5px 0;
+}
+
+
+.to-do-item {
+	font-size: 16px;
+}
+
+.btn{
+	background: $p;	
+	color: $y;
+	text-transform: uppercase;
+	text-decoration: none;
+	@include transition(all 0.4s ease-in-out);
+	&:hover{
+		background: shade($p, 10%);
+		border-color: shade($p, 10%);
+		@include transition(all 0.4s ease-in-out);
+	}
+}
+
+.main-btn{
+	padding: 20px;
+	@include span-columns(2 of 8);
+	margin-right: 0;
+	text-align: center;
+	font-weight: 600;
+	border: 5px solid $p;
+	font-size: modular-scale(1);
+	margin-bottom: 20px;
+}
+
+.small-btn{
+	padding: 7px 10px;
+	margin-left: 7px;
+	font-weight: 400;
+}
+
+.box-container {
+	@include span-columns(12);
+	background: $o;
+	border: $r 5px solid;
+	padding: 20px;
+}

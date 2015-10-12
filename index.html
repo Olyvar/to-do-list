@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>To Do List</title>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/Lettering.js/jquery.lettering.js"></script>
+	<link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+	<link href='https://fonts.googleapis.com/css?family=Raleway:400,900,200' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="stylesheets/style.css">
+	<script>
+
+	$(document).ready(function(){
+		$(".main-head").lettering();
+	});
+
+	</script>
+</head>
+<body>
+
+<div class="container">
+
+<div class="box-container">
+	<h1 class="main-head text-center">TO-DO LIST</h1>
+
+
+	<div class="done-items">
+		<h2>Completed Items</h2>
+		<ul>
+			<li>Done</li>
+			<li>Done 2</li>
+		</ul>
+
+	</div>
+
+	<div class="to-do-items">
+	<form action="#">
+		<input type="text" class="main-input js-main-input" placeholder="Get stamps..." value="test">
+		<a href="#" class="main-btn btn js-add">Add</a>
+		<ul class="js-my-todos">
+
+		</ul>
+
+	</div>
+	</form>
+</div>
+
+</div>
+
+<script>
+	( function(){
+
+		var addBtn = document.querySelector(".js-add"),
+			newLi = '<li><input type="checkbox">  <span class="to-do-item" name="to-do-item">Done</span> <a class="small-btn btn pull-right" href="#">Delete</a> <a class="small-btn btn pull-right" href="#">Mark as Complete</a></li>',
+			myToDos = document.querySelector(".js-my-todos"),
+			mainInput = document.querySelector(".js-main-input")
+			li = document.createElement("li");
+			li.setAttribute("class", "red");
+			li.setAttribute("style", "height: 50px; width: 100px; background: yellow");
+
+		addBtn.addEventListener("click", function(e){
+			e.preventDefault();
+			myToDos.appendChild(li);
+			console.log(mainInput);
+			// alert(mainInput.value);
+		});
+
+
+	}() );
+
+</script>
+</body>
+</html>
