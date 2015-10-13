@@ -68,10 +68,20 @@ form{
 .main-input{
 	height: 75px;
 	padding: 20px;
-	@include span-columns(6 of 8);
 	font-size: modular-scale(2);
 	background-color: $y;
 	border: 5px solid $r;
+	color: $r;
+	@include span-columns(6 of 8);
+	@include transition(all 0.3s ease-in-out);
+	@include placeholder {
+		color: rgba($r, 0.5);
+	}
+	&:focus{
+			outline: none;
+			border: 5px solid $p;
+			@include transition(all 0.3s ease-in-out);
+	}
 }
 
 .container{
@@ -111,7 +121,7 @@ li{
 
 .main-btn{
 	padding: 20px;
-	@include span-columns(2 of 8);
+	float: left;
 	margin-right: 0;
 	text-align: center;
 	font-weight: 600;

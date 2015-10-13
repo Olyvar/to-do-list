@@ -35,7 +35,7 @@
 
 	<div class="to-do-items">
 	<form action="#">
-		<input type="text" class="main-input js-main-input" placeholder="Get stamps..." value="test">
+		<input type="text" class="main-input js-main-input" placeholder="Get stamps..." value="">
 		<a href="#" class="main-btn btn js-add">Add</a>
 		<ul class="js-my-todos">
 
@@ -50,19 +50,39 @@
 <script>
 	( function(){
 
+		//	var newLi = '<li><input type="checkbox">  <span class="to-do-item" name="to-do-item">Done</span> <a class="small-btn btn pull-right" href="#">Delete</a> <a class="small-btn btn pull-right" href="#">Mark as Complete</a></li>';
+
+		// Variables
+
 		var addBtn = document.querySelector(".js-add"),
-			newLi = '<li><input type="checkbox">  <span class="to-do-item" name="to-do-item">Done</span> <a class="small-btn btn pull-right" href="#">Delete</a> <a class="small-btn btn pull-right" href="#">Mark as Complete</a></li>',
 			myToDos = document.querySelector(".js-my-todos"),
-			mainInput = document.querySelector(".js-main-input")
-			li = document.createElement("li");
-			li.setAttribute("class", "red");
-			li.setAttribute("style", "height: 50px; width: 100px; background: yellow");
+			mainInput = document.querySelector(".js-main-input");
+
+		// Functions
+
+		var addToDoItem = function(e){
+			// Prevent button's default behaviour
+			e.preventDefault();
+			// Create new Li element each time button is clicked
+			var li = document.createElement("li");
+			// Append new Li element to UL, then fill it with the value of the input field
+			myToDos
+				.appendChild(li)
+				.innerHTML = mainInput.value;
+			// Reset input
+			mainInput.value = "";
+		}
+
+		// Events
 
 		addBtn.addEventListener("click", function(e){
-			e.preventDefault();
-			myToDos.appendChild(li);
-			console.log(mainInput);
-			// alert(mainInput.value);
+			addToDoItem(e);
+		});
+
+		mainInput.addEventListener("keydown", function(e){
+			if(e.keyCode === 13 || e.which === 13){
+				addToDoItem(e);
+			}
 		});
 
 
