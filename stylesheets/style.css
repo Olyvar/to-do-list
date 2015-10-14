@@ -94,6 +94,12 @@ form {
     -moz-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out; }
 
+.error {
+  border-color: yellow;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+
 .container {
   max-width: 68em;
   margin-left: auto;

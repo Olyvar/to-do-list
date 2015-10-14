@@ -50,30 +50,44 @@
 <script>
 	( function(){
 
+		// Need to look into the input staying in focus after hitting return (it should leave the input)
+
 		//	var newLi = '<li><input type="checkbox">  <span class="to-do-item" name="to-do-item">Done</span> <a class="small-btn btn pull-right" href="#">Delete</a> <a class="small-btn btn pull-right" href="#">Mark as Complete</a></li>';
 
-		// Variables
+		// VARIABLES
 
 		var addBtn = document.querySelector(".js-add"),
 			myToDos = document.querySelector(".js-my-todos"),
 			mainInput = document.querySelector(".js-main-input");
 
-		// Functions
+		// FUNCTIONS
+
+		// Simple Validation
+		var validation = function(input){
+			if(input.value === "") {
+				input.classList.toggle("error");
+				setTimeout(function(){
+					input.classList.toggle("error");
+				}, 2000);
+			}
+		}
 
 		var addToDoItem = function(e){
 			// Prevent button's default behaviour
 			e.preventDefault();
+			validation(mainInput);
+
 			// Create new Li element each time button is clicked
 			var li = document.createElement("li");
-			// Append new Li element to UL, then fill it with the value of the input field
+			// Prepend (insert before the first child of the ul, which will always be the latest li element) new Li element to UL, then fill it with the value of the input field
 			myToDos
-				.appendChild(li)
+				.insertBefore(li, myToDos.firstChild)
 				.innerHTML = mainInput.value;
 			// Reset input
 			mainInput.value = "";
 		}
 
-		// Events
+		// EVENTS
 
 		addBtn.addEventListener("click", function(e){
 			addToDoItem(e);

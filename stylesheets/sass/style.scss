@@ -84,6 +84,12 @@ form{
 	}
 }
 
+.error{
+	// to insert animated lefty righty
+	border-color: red;
+	@include transition(all 0.3s ease-in-out);
+}
+
 .container{
 	@include outer-container;
 	margin-top: 100px;
