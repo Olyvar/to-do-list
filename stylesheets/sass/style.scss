@@ -59,6 +59,7 @@ form{
 
 .done-items{
 	@include span-columns(4 of 12);
+	color: $y;
 }
 
 .to-do-items{
@@ -70,7 +71,7 @@ form{
 	padding: 20px;
 	font-size: modular-scale(2);
 	background-color: $y;
-	border: 5px solid $r;
+	border: 5px solid $p;
 	color: $r;
 	@include span-columns(6 of 8);
 	@include transition(all 0.3s ease-in-out);
@@ -79,15 +80,26 @@ form{
 	}
 	&:focus{
 			outline: none;
-			border: 5px solid $p;
+			border: 5px solid shade($p, 20%);
 			@include transition(all 0.3s ease-in-out);
 	}
 }
 
+.completed {
+	color: $p;
+	text-decoration: line-through;
+}
+
 .error{
-	// to insert animated lefty righty
-	border-color: red;
-	@include transition(all 0.3s ease-in-out);
+  animation: shake-it-off ease-out 0.3s 1;
+}
+
+@keyframes shake-it-off {
+  0%   { margin-left: 0;     }
+  25%  { margin-left: 20px;  }
+  50%  { margin-left: -20px; }
+  75%  { margin-left: 20px;  }
+  100% { margin-left: 0;     }
 }
 
 .container{
@@ -102,15 +114,14 @@ li{
 	display: inline-block;
 	width: 100%;
 	color: $y;
-	font-size: 16px;
+	font-size: 20px;
 	margin-bottom: 10px;
 	padding: 5px 0;
+	span {
+		font-size: 24px;
+	}
 }
 
-
-.to-do-item {
-	font-size: 16px;
-}
 
 .btn{
 	background: $p;	
@@ -119,8 +130,8 @@ li{
 	text-decoration: none;
 	@include transition(all 0.4s ease-in-out);
 	&:hover{
-		background: shade($p, 10%);
-		border-color: shade($p, 10%);
+		background: shade($p, 20%);
+		border-color: shade($p, 20%);
 		@include transition(all 0.4s ease-in-out);
 	}
 }
@@ -140,6 +151,13 @@ li{
 	padding: 7px 10px;
 	margin-left: 7px;
 	font-weight: 400;
+}
+
+.delete-btn{
+	background-color: $r;
+	&:hover{
+		background-color: shade($r, 20%);
+	}
 }
 
 .box-container {

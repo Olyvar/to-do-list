@@ -51,7 +51,8 @@ form {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 31.76157%; }
+  width: 31.76157%;
+  color: #ffe390; }
   .done-items:last-child {
     margin-right: 0; }
 
@@ -68,7 +69,7 @@ form {
   padding: 20px;
   font-size: 1.77689em;
   background-color: #ffe390;
-  border: 5px solid #ff4a4a;
+  border: 5px solid #a83c54;
   color: #ff4a4a;
   float: left;
   display: block;
@@ -89,17 +90,29 @@ form {
     color: rgba(255, 74, 74, 0.5); }
   .main-input:focus {
     outline: none;
-    border: 5px solid #a83c54;
+    border: 5px solid #863043;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out; }
 
-.error {
-  border-color: yellow;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out; }
+.completed {
+  color: #a83c54;
+  text-decoration: line-through; }
 
+.error {
+  animation: shake-it-off ease-out 0.3s 1; }
+
+@keyframes shake-it-off {
+  0% {
+    margin-left: 0; }
+  25% {
+    margin-left: 20px; }
+  50% {
+    margin-left: -20px; }
+  75% {
+    margin-left: 20px; }
+  100% {
+    margin-left: 0; } }
 .container {
   max-width: 68em;
   margin-left: auto;
@@ -115,12 +128,11 @@ li {
   display: inline-block;
   width: 100%;
   color: #ffe390;
-  font-size: 16px;
+  font-size: 20px;
   margin-bottom: 10px;
   padding: 5px 0; }
-
-.to-do-item {
-  font-size: 16px; }
+  li span {
+    font-size: 24px; }
 
 .btn {
   background: #a83c54;
@@ -131,8 +143,8 @@ li {
   -moz-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out; }
   .btn:hover {
-    background: #97364c;
-    border-color: #97364c;
+    background: #863043;
+    border-color: #863043;
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out; }
@@ -151,6 +163,11 @@ li {
   padding: 7px 10px;
   margin-left: 7px;
   font-weight: 400; }
+
+.delete-btn {
+  background-color: #ff4a4a; }
+  .delete-btn:hover {
+    background-color: #cc3b3b; }
 
 .box-container {
   float: left;

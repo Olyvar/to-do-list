@@ -25,17 +25,16 @@
 
 
 	<div class="done-items">
+		<h2><span class="js-completed-items">0</span> / <span class="js-total-items">0</span> Items completed</h2>
 		<h2>Completed Items</h2>
-		<ul>
-			<li>Done</li>
-			<li>Done 2</li>
+		<ul class="js-my-completed-items">
 		</ul>
 
 	</div>
 
 	<div class="to-do-items">
 	<form action="#">
-		<input type="text" class="main-input js-main-input" placeholder="Get stamps..." value="">
+		<input type="text" class="main-input js-main-input" placeholder="What needs to be done?" value="">
 		<a href="#" class="main-btn btn js-add">Add</a>
 		<ul class="js-my-todos">
 
@@ -47,61 +46,6 @@
 
 </div>
 
-<script>
-	( function(){
-
-		// Need to look into the input staying in focus after hitting return (it should leave the input)
-
-		//	var newLi = '<li><input type="checkbox">  <span class="to-do-item" name="to-do-item">Done</span> <a class="small-btn btn pull-right" href="#">Delete</a> <a class="small-btn btn pull-right" href="#">Mark as Complete</a></li>';
-
-		// VARIABLES
-
-		var addBtn = document.querySelector(".js-add"),
-			myToDos = document.querySelector(".js-my-todos"),
-			mainInput = document.querySelector(".js-main-input");
-
-		// FUNCTIONS
-
-		// Simple Validation
-		var validation = function(input){
-			if(input.value === "") {
-				input.classList.toggle("error");
-				setTimeout(function(){
-					input.classList.toggle("error");
-				}, 2000);
-			}
-		}
-
-		var addToDoItem = function(e){
-			// Prevent button's default behaviour
-			e.preventDefault();
-			validation(mainInput);
-
-			// Create new Li element each time button is clicked
-			var li = document.createElement("li");
-			// Prepend (insert before the first child of the ul, which will always be the latest li element) new Li element to UL, then fill it with the value of the input field
-			myToDos
-				.insertBefore(li, myToDos.firstChild)
-				.innerHTML = mainInput.value;
-			// Reset input
-			mainInput.value = "";
-		}
-
-		// EVENTS
-
-		addBtn.addEventListener("click", function(e){
-			addToDoItem(e);
-		});
-
-		mainInput.addEventListener("keydown", function(e){
-			if(e.keyCode === 13 || e.which === 13){
-				addToDoItem(e);
-			}
-		});
-
-
-	}() );
-
-</script>
+<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>
