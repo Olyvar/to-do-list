@@ -56,10 +56,15 @@
 			mainInput.value = "";
 			// Select mark as complete button
 			var markAsCompleteBtn = document.querySelector(".js-mark-as-complete");
+			var deleteBtn = document.querySelector(".js-delete");
 			// Add event listener to button
 			markAsCompleteBtn.addEventListener("click", function(e){
 				markAsComplete(e);
 			});
+
+			deleteBtn.addEventListener("click", function(e){
+				deleteItem(e);
+			})
 		}
 
 		var addAndShowTotalItems = function(){
@@ -71,9 +76,13 @@
 			completedItemsCount++;
 			completedItemsSpan.innerHTML = completedItemsCount;
 			completedItems.push(e.target.parentNode.querySelector(".js-value").innerHTML);
+
 			e.target.parentNode.className = "completed";
 			completedItemsList.innerHTML += "<li>" + completedItems.slice(-1)[0] + "</li>";
-			console.log(completedItems);
+		}
+
+		var deleteItem = function(e){
+			e.target.parentNode.remove();
 		}
 
 		// EVENTS
