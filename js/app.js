@@ -1,9 +1,5 @@
 	( function(){
 
-		// Need to look into the input staying in focus after hitting return (it should leave the input, so the focus doesn't override the error)
-
-		//	var newLi = '<li><input type="checkbox">  <span class="to-do-item" name="to-do-item">Done</span> <a class="small-btn btn pull-right" href="#">Delete</a> <a class="small-btn btn pull-right" href="#">Mark as Complete</a></li>';
-
 		// VARIABLES
 
 		var addBtn 				= document.querySelector(".js-add"),
@@ -14,7 +10,7 @@
 			completedItemsList 	= document.querySelector(".js-my-completed-items"),
 			deleteBtn 			= document.querySelector(".js-delete"),
 			jsButtons	 		= "<a class='small-btn btn pull-right js-delete delete-btn' href='#'>Delete</a> <a class='small-btn btn pull-right js-mark-as-complete' href='#'>Mark as Complete</a>",
-			completedItemsCount	= 0, 
+			completedItemsCount	= 0,
 			totalItemsCount 	= 0,
 			completedItems 		= [],
 			allGood				= true;
@@ -26,16 +22,19 @@
 		// Simple Validation
 		var validation = function(input){
 			if(input.value === "") {
-				input.classList.toggle("error");			
+				input.classList.toggle("error");
+				// Set Timeout to remove error class after 1 second
 				setTimeout(function(){
 					input.classList.toggle("error");
 				}, 1000);
+				// Set variable to false, so we can return out of the 'addToDo' function
 				allGood = false;
 			} else {
 				allGood = true;
 			}
 		}
 
+		// Main Function
 		var addToDoItem = function(e){
 			// Prevent button's default behaviour
 			e.preventDefault();
@@ -68,20 +67,25 @@
 		}
 
 		var addAndShowTotalItems = function(){
+			// function that increments total item counter and prints to page
 			totalItemsCount++;
 			totalItemsSpan.innerHTML = totalItemsCount;
 		}
 
 		var markAsComplete = function(e){
+			// increment completed item count and print to page
 			completedItemsCount++;
 			completedItemsSpan.innerHTML = completedItemsCount;
+			// push the 'text' of the completed item to an array
 			completedItems.push(e.target.parentNode.querySelector(".js-value").innerHTML);
-
+			// add completed css class name to  to-do-list item
 			e.target.parentNode.className = "completed";
+			// add text from completed items array to list. Slice method is used so the last item in the array is grabbed and returned
 			completedItemsList.innerHTML += "<li>" + completedItems.slice(-1)[0] + "</li>";
 		}
 
 		var deleteItem = function(e){
+			// remove item
 			e.target.parentNode.remove();
 		}
 
@@ -92,6 +96,7 @@
 		});
 
 		mainInput.addEventListener("keydown", function(e) {
+			// handles hitting enter on the input
 			if(e.keyCode === 13 || e.which === 13){
 				addToDoItem(e);
 			}

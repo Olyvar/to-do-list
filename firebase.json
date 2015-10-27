@@ -1,0 +1,9 @@
+{
+  "firebase": "to-do-list-olyvar",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
