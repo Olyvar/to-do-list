@@ -21,6 +21,8 @@ var toDoListApp = {
 			this.totalItemsSpan = this.toDoList.querySelector(".js-total-items");
 			this.completedItemsSpan = this.toDoList.querySelector(".js-completed-items");
 			this.completedItemsList = this.toDoList.querySelector(".js-my-completed-items");
+			this.noItemsCompleted = this.toDoList.querySelector(".js-no-items-completed");
+			this.noItemsAdded = this.toDoList.querySelector(".js-no-items-added");
 		} else {
 			// elements not available until created
 			this.markAsCompleteBtn = this.toDoList.querySelector(".js-mark-as-complete");
@@ -101,12 +103,24 @@ var toDoListApp = {
 		// function that increments total item counter and prints to page
 		this.totalItemsCount++;
 		this.totalItemsSpan.innerHTML = this.totalItemsCount;
+
+		if(this.totalItemsCount > 0){
+			this.noItemsAdded.style.display = "none";
+		} else{
+			this.noItemsAdded.style.display = "block";
+		}
 	},
 
 	incrementCompletedItems: function(){
 		// increment completed item count and print to page
 		this.completedItemsCount++;
 		this.completedItemsSpan.innerHTML = this.completedItemsCount;
+
+		if(this.completedItemsCount > 0){
+			this.noItemsCompleted.style.display = "none";
+		} else{
+			this.noItemsCompleted.style.display = "block";
+		}
 	},
 
 	deleteItem: function(e){

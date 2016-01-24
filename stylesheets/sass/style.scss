@@ -22,11 +22,17 @@ h1{
 	font-weight: 700;
 	color: $y;
 	font-size: modular-scale(7);
+	margin: 0.1em 0 0.2em;
 }
 
-h1,h2{
+h1,h2,h3{
 	color: $y;
 }
+
+.main-head{
+	text-shadow: tint($r, 10%) -4px 4px 0;
+}
+
 
 .brand-heading{
 	color: $p;
@@ -34,18 +40,25 @@ h1,h2{
 
 p {
 	font-weight: 400;
+	font-size: 1.2em;
+	color: $y;
 }
 
-.pull-right{
-	float: right;
+.container{
+	@include outer-container;
+	margin-top: 100px;
 }
 
-.main-head{
-	text-shadow: tint($r, 10%) -4px 4px 0;
+.box-container {
+	@include span-columns(12);
+	background: $o;
+	border: $r 5px solid;
+	padding: 20px;
+	min-height: 700px;
 }
 
-.text-center{
-	text-align: center;
+.todo-container{
+	clear: both;
 }
 
 .char1,.char3,.char4,.char6,.char8{
@@ -57,13 +70,8 @@ p {
 	bottom: 6px;
 }
 
-form{
-	@include span-columns(12);
-}
-
 .done-items{
 	@include span-columns(4 of 12);
-	color: $y;
 }
 
 .to-do-items{
@@ -106,13 +114,6 @@ form{
   100% { margin-left: 0;     }
 }
 
-.container{
-	@include outer-container;
-	margin-top: 100px;
-}
-
-
-
 li{
 	list-style: none;
 	display: inline-block;
@@ -125,7 +126,6 @@ li{
 		font-size: 24px;
 	}
 }
-
 
 .btn{
 	background: $p;
@@ -164,9 +164,12 @@ li{
 	}
 }
 
-.box-container {
-	@include span-columns(12);
-	background: $o;
-	border: $r 5px solid;
-	padding: 20px;
+// helpers
+
+.pull-right{
+	float: right;
+}
+
+.text-center{
+	text-align: center;
 }

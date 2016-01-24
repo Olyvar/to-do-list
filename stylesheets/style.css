@@ -14,25 +14,47 @@ body {
 h1 {
   font-weight: 700;
   color: #ffe390;
-  font-size: 7.47844em; }
+  font-size: 7.47844em;
+  margin: 0.1em 0 0.2em; }
 
-h1, h2 {
+h1, h2, h3 {
   color: #ffe390; }
+
+.main-head {
+  text-shadow: #ff5c5c -4px 4px 0; }
 
 .brand-heading {
   color: #a83c54; }
 
 p {
-  font-weight: 400; }
+  font-weight: 400;
+  font-size: 1.2em;
+  color: #ffe390; }
 
-.pull-right {
-  float: right; }
+.container {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px; }
+  .container::after {
+    clear: both;
+    content: "";
+    display: table; }
 
-.main-head {
-  text-shadow: #ff5c5c -4px 4px 0; }
+.box-container {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  background: #ff926b;
+  border: #ff4a4a 5px solid;
+  padding: 20px;
+  min-height: 700px; }
+  .box-container:last-child {
+    margin-right: 0; }
 
-.text-center {
-  text-align: center; }
+.todo-container {
+  clear: both; }
 
 .char1, .char3, .char4, .char6, .char8 {
   top: 4px;
@@ -42,20 +64,11 @@ p {
   position: relative;
   bottom: 6px; }
 
-form {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%; }
-  form:last-child {
-    margin-right: 0; }
-
 .done-items {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 31.76157%;
-  color: #ffe390; }
+  width: 31.76157%; }
   .done-items:last-child {
     margin-right: 0; }
 
@@ -116,16 +129,6 @@ form {
     margin-left: 20px; }
   100% {
     margin-left: 0; } }
-.container {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 100px; }
-  .container::after {
-    clear: both;
-    content: "";
-    display: table; }
-
 li {
   list-style: none;
   display: inline-block;
@@ -172,15 +175,10 @@ li {
   .delete-btn:hover {
     background-color: #cc3b3b; }
 
-.box-container {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%;
-  background: #ff926b;
-  border: #ff4a4a 5px solid;
-  padding: 20px; }
-  .box-container:last-child {
-    margin-right: 0; }
+.pull-right {
+  float: right; }
+
+.text-center {
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
